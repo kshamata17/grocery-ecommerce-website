@@ -46,4 +46,11 @@
     --bs-btn-disabled-color: #fff;
     --bs-btn-disabled-bg: #f16838;
     --bs-btn-disabled-border-color: #f16838;
-  }
+}
+
+.save-btn {
+    max-width: fit-content;
+    padding: 0.25rem 0.5rem;
+    background: #ffff00;
+    color: #000000;
+}
