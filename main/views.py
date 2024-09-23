@@ -12,3 +12,9 @@ def productDetail(request):
 
 def catalogue(request):
     return render(request, 'main/catalogue.html')
+
+def bookLayout(request):
+    return render(request, 'main/book-layout.html')
+
+def sliderLayout(request):
+    return render(request, 'main/slider.html')
