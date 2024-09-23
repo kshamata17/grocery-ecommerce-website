@@ -9,4 +9,7 @@ urlpatterns = [
     path('product-detail/', views.productDetail, name='main-product-detail'),
     path('catalogue/', views.catalogue, name='main-catalogue'),
 
+    path('book-layout/', views.bookLayout, name='main-book-layout'),
+    path('slider/', views.sliderLayout, name='main-slider'),
+
 ]
