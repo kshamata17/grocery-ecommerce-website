@@ -4,6 +4,7 @@
 
 <section class="py-4">
     <div class="container px-4 bg-primary">
+        <a href="{% url "main-book-layout" %}" class="h1 text-white">Book Layout</a>
         <div class="row gy-4">
             <div class="col-md-6 bg-primary p-4">
                 <h1 class="text-uppercase text-white text-center">Grocetria</h1>
@@ -109,10 +110,10 @@
                 </div>
                 <div class="text-white row py-2">
                     <div class="col-md-6">
-                        <p class="mb-0 text-center">lorem ipsum dolor sit</p>
+                        <h4 class="mb-0 text-center">lorem ipsum dolor sit</h4>
                     </div>
                     <div class="col-md-6">
-                        <p class="mb-0 text-center">You call, we deliver</p>
+                        <h4 class="mb-0 text-center">You call, we deliver</h4>
                     </div>
                 </div>
             </div>
@@ -133,7 +134,32 @@
                             <div class="row g-0 bg-white">
                                 <div class="col p-2">
                                     {% comment %} <p class="card-text save-btn text-sm mb-1">Save Rs. 100</p> {% endcomment %}
-                                    <h3 class="card-text text-very-lg mb-0">Rs. 100</h3>
+                                    <h4 class="card-text text-very-lg mb-0">Rs. 100</h4>
+                                    <p class="text-gray-700 mb-0">Rs. 200/10pcs</p>
+                                </div>
+                                <div class="col d-flex align-items-center">
+                                    <a href="{% url 'main-product-detail' %}" class="card-title text-center h5 text-primary">Lorem ipsum dolor sit amet</a>   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-group">
+                    <div class="card position-relative">
+                        <!-- Image Wrapper -->
+                        <div class="position-relative">
+                            <!-- Product Image -->
+                            <a href="{% url 'main-product-detail' %}" >
+                                <img src="{% static 'main/img/product.jpg' %}" class="card-img-top" alt="product image">
+                            </a>
+                            <!-- Sale Badge -->
+                            <span class="badge border border-primary text-primary position-absolute top-0 start-0 m-1 p-1 rounded-circle d-flex align-items-center justify-content-center bg-save-badge" style="width: 60px; height: 60px; border-width: 2px;">Save <br> Rs. 100</span>
+                        </div>
+                        <div class="card-body bg-primary">
+                            <div class="row g-0 bg-white">
+                                <div class="col p-2">
+                                    {% comment %} <p class="card-text save-btn text-sm mb-1">Save Rs. 100</p> {% endcomment %}
+                                    <h4 class="card-text text-very-lg mb-0">Rs. 100</h4>
                                     <p class="text-gray-700 mb-0">Rs. 200/10pcs</p>
                                 </div>
                                 <div class="col d-flex align-items-center">
@@ -148,13 +174,15 @@
                 <h1 class="text-underline"><u>Contents</u></h1>
                 <p>Click to browse</p>
                 <ul class="list-unstyled">
-                    <li class="py-2 border border-white">1/2 Price</li>
-                    <li class="py-2 border border-white">Fruits & Veg</li>
-                    <li class="py-2 border border-white">Item</li>
-                    <li class="py-2 border border-white">Item</li>
-                    <li class="py-2 border border-white">Item</li>
-                    <li class="py-2 border border-white">Item</li>
-                    <li class="py-2 border border-white">Item</li>
+                    <li class="py-2 border border-hover-secondary cursor-pointer"><a href="#" class="text-white">1/2 Price</a></li>
+                    <li class="py-2 border border-white cursor-pointer"><a href="#" class="text-white">1/2 Price</a></li>
+                    <li class="py-2 border border-white cursor-pointer"><a href="#" class="text-white">Fruits & Veg</a></li>
+                    <li class="py-2 border border-white cursor-pointer"><a href="#" class="text-white">Item</a></li>
+                    <li class="py-2 border border-white cursor-pointer"><a href="#" class="text-white">Item</a></li>
+                    <li class="py-2 border border-white cursor-pointer"><a href="#" class="text-white">Item</a></li>
+                    <li class="py-2 border border-white cursor-pointer"><a href="#" class="text-white">Item</a></li>
+                    <li class="py-2 border border-white cursor-pointer"><a href="#" class="text-white">Item</a></li>
+                    <li class="py-2 border border-white cursor-pointer"><a href="#" class="text-white">Item</a></li>
                 </ul>
             </div>
         </div>
