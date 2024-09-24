@@ -1,205 +1,348 @@
 {% extends 'main/base.html' %}
 {% load static %}
 {% block content %}
-<div id="carouselExample" class="carousel slide">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <div class="row gy-4">
-            <div class="col-md-6 bg-primary p-4">
-                <h1 class="text-uppercase text-white text-center">Grocetria</h1>
-                <h3 class="text-uppercase text-white text-center">You call, we deliver</h3>
-                <div class="row gy-2">
-                    <div class="col-sm-6 mb-3 mb-sm-0">
-                        <div class="card mb-3 bg-secondary">
-                            <a src="{% url "main-product-detail" %}" class="p-4">
-                                <div class="row g-0 bg-white">
-                                    <div class="col-md-5">
-                                      <div class="card-body text-dark">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">This</p>
-                                        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-                                      </div>
-                                    </div>
-                                    <div class="col-md-7">
-                                      <img src="{% static "main/img/product-2.jpg" %}" class="img-fluid rounded-start" alt="...">
-                                    </div>
+<style>
+    #carouselExampleCaptions {
+        width: 90vw;
+        height: 100%;
+    
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    
+      .carousel-inner {
+          width: 100%;
+      }
+    
+      .card {
+          width: 100%;
+          height: 100%;
+          border-radius: 10px;
+          border: none;
+          transition: filter 0.5s ease;
+          box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+      }
+    
+      .card img {
+          filter: grayscale(100%);
+          width: 100%;
+          height: 16em;
+          object-fit: cover;
+          object-position: 0% 20%;
+          border-radius: inherit;
+      }
+    
+      .card:hover img {
+        filter: grayscale(0);
+      }
+    
+      .card .name {
+          font-size: 1.5em;
+          font-weight: 900;
+          text-transform: uppercase;
+          margin: 0;
+          text-align: center;
+      }
+    
+      .card .role {
+          font-size: 1.2em;
+          margin: 0;
+          text-align: center;
+      }
+    
+      .card .work-at {
+          font-size: 1em;
+          text-align: center;
+      }
+    
+      i.fa-arrow-right,
+     i.fa-arrow-left {
+        background: orangered;
+        padding: 10px;
+        border-radius: 100%;
+      }
+    
+      .carousel-indicators [data-bs-target] {
+        background-color: orangered;
+        width: 10px;
+        height: 10px;
+        border-radius: 100%;
+        transition: opacity, width .6s ease;
+      }
+    
+      .carousel-indicators .active {
+          opacity: 1;
+          width: 20px;
+      }
+    
+    @media screen and (max-width: 900px){
+      #carouselExampleCaptions {
+        width: 70vw;
+        height: 70vh;
+      }
+    
+      #carouselExampleCaptions::before {
+        background: linear-gradient(90deg, #fff 60%, black 100%);
+      }
+    
+      #carouselExampleCaptions::after {
+        background: linear-gradient(-90deg, #fff 60%, black 100%);
+      }
+    
+      .card img {
+          width: 100%;
+          height: 10em;
+      }
+    
+      .card .name {
+        margin-top: 1em;
+          font-size: 1em;
+          font-weight: 700;
+      }
+    
+      .card .role {
+          font-size: 0.8em;
+      }
+    
+      .card .work-at {
+    
+          font-size: 0.6em;
+      }
+    }
+</style>
+<section>
+    <div id="carouselExampleCaptions" class="carousel slide mx-auto">
+        <section>
+            <p>The Team</p>
+        </section>
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="5" aria-label="Slide 6"></button>
+        </div>
+        
+        <div class="carousel-inner"><!--The Carousel Container-->
+
+          <div class="carousel-item active"><!--The Carousel Slider-->
+            <aside class="card team1">
+                <div class="row gy-4">
+                    <div class="col-md-6 bg-primary p-4">
+                        <h1 class="text-uppercase text-white text-center">Grocetria</h1>
+                        <h3 class="text-uppercase text-white text-center">You call, we deliver</h3>
+                        <div class="row gy-2">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <div class="card mb-3 bg-secondary">
+                                    <a src="{% url "main-product-detail" %}" class="p-4">
+                                        <div class="row g-0 bg-white">
+                                            <div class="col-md-5">
+                                            <div class="card-body text-dark">
+                                                <h5 class="card-title">Card title</h5>
+                                                <p class="card-text">This</p>
+                                                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                                            </div>
+                                            </div>
+                                            <div class="col-md-7">
+                                            <img src="{% static "main/img/product-2.jpg" %}" class="img-fluid rounded-start" alt="...">
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
-                            </a>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="card mb-3 bg-secondary">
+                                    <a src="{% url "main-product-detail" %}" class="p-4">
+                                        <div class="row g-0 bg-white">
+                                            <div class="col-md-5">
+                                            <div class="card-body text-dark">
+                                                <h5 class="card-title">Card title</h5>
+                                                <p class="card-text">This</p>
+                                                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                                            </div>
+                                            </div>
+                                            <div class="col-md-7">
+                                            <img src="{% static "main/img/product-2.jpg" %}" class="img-fluid rounded-start" alt="...">
+                                            </div>
+                                        </div>
+                                    </a>
+                                    
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="card mb-3 bg-secondary">
-                            <a src="{% url "main-product-detail" %}" class="p-4">
-                                <div class="row g-0 bg-white">
-                                    <div class="col-md-5">
-                                      <div class="card-body text-dark">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">This</p>
-                                        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-                                      </div>
+                        <div class="bg-secondary p-2 mb-4">
+                            <h1 class="text-center text-underline"><u>1/2 Price</u></h1>
+                            <div class="card-group">
+                                <div class="card position-relative">
+                                    <!-- Image Wrapper -->
+                                    <div class="position-relative">
+                                        <!-- Product Image -->
+                                        <a href="{% url 'main-product-detail' %}" >
+                                        <img src="{% static 'main/img/product.jpg' %}" class="card-img-top" alt="product image">
+                                        </a>
+                                        <!-- Sale Badge -->
+                                        <span class="badge border border-primary text-primary position-absolute top-0 start-0 m-1 p-1 rounded-circle d-flex align-items-center justify-content-center bg-save-badge" style="width: 60px; height: 60px; border-width: 2px;">Save <br> Rs. 100</span>
                                     </div>
-                                    <div class="col-md-7">
-                                      <img src="{% static "main/img/product-2.jpg" %}" class="img-fluid rounded-start" alt="...">
+                                    <div class="card-body bg-primary">
+                                        <div class="row g-0 bg-white">
+                                            <div class="col p-2">
+                                                {% comment %} <p class="card-text save-btn text-sm mb-1">Save Rs. 100</p> {% endcomment %}
+                                                <h3 class="card-text text-very-lg mb-0">Rs. 100</h3>
+                                                <p class="text-gray-700 mb-0">Rs. 200/10pcs</p>
+                                            </div>
+                                            <div class="col d-flex align-items-center">
+                                                <a href="{% url 'main-product-detail' %}" class="card-title text-center h5 text-primary">Lorem ipsum dolor sit amet</a>   
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </a>
+                                <div class="card position-relative">
+                                    <!-- Image Wrapper -->
+                                    <div class="position-relative">
+                                        <!-- Product Image -->
+                                        <a href="{% url 'main-product-detail' %}" >
+                                        <img src="{% static 'main/img/product.jpg' %}" class="card-img-top" alt="product image">
+                                        </a>
+                                        <!-- Sale Badge -->
+                                        <span class="badge border border-primary text-primary position-absolute top-0 start-0 m-1 p-1 rounded-circle d-flex align-items-center justify-content-center bg-save-badge" style="width: 60px; height: 60px; border-width: 2px;">Save <br> Rs. 100</span>
+                                    </div>
+                                    <div class="card-body bg-primary">
+                                        <div class="row g-0 bg-white">
+                                            <div class="col p-2">
+                                                {% comment %} <p class="card-text save-btn text-sm mb-1">Save Rs. 100</p> {% endcomment %}
+                                                <h3 class="card-text text-very-lg mb-0">Rs. 100</h3>
+                                                <p class="text-gray-700 mb-0">Rs. 200/10pcs</p>
+                                            </div>
+                                            <div class="col d-flex align-items-center">
+                                                <a href="{% url 'main-product-detail' %}" class="card-title text-center h5 text-primary">Lorem ipsum dolor sit amet</a>   
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="bg-secondary p-2">
+                            <div class="d-flex align-items-center  justify-content-between">
+                                <h2>1/2 Price</h2> 
+                                <h3>Bonds</h3>
+                                images
+                            </div>
                             
                         </div>
-                    </div>
-                </div>
-                <div class="bg-secondary p-2 mb-4">
-                    <h1 class="text-center text-underline"><u>1/2 Price</u></h1>
-                    <div class="card-group">
-                        <div class="card position-relative">
-                            <!-- Image Wrapper -->
-                            <div class="position-relative">
-                                <!-- Product Image -->
-                                <a href="{% url 'main-product-detail' %}" >
-                                  <img src="{% static 'main/img/product.jpg' %}" class="card-img-top" alt="product image">
-                                </a>
-                                <!-- Sale Badge -->
-                                <span class="badge border border-primary text-primary position-absolute top-0 start-0 m-1 p-1 rounded-circle d-flex align-items-center justify-content-center bg-save-badge" style="width: 60px; height: 60px; border-width: 2px;">Save <br> Rs. 100</span>
+                        <div class="text-white row py-2">
+                            <div class="col-md-6">
+                                <h4 class="mb-0 text-center">lorem ipsum dolor sit</h4>
                             </div>
-                            <div class="card-body bg-primary">
-                                <div class="row g-0 bg-white">
-                                    <div class="col p-2">
-                                        {% comment %} <p class="card-text save-btn text-sm mb-1">Save Rs. 100</p> {% endcomment %}
-                                        <h3 class="card-text text-very-lg mb-0">Rs. 100</h3>
-                                        <p class="text-gray-700 mb-0">Rs. 200/10pcs</p>
-                                    </div>
-                                    <div class="col d-flex align-items-center">
-                                        <a href="{% url 'main-product-detail' %}" class="card-title text-center h5 text-primary">Lorem ipsum dolor sit amet</a>   
-                                    </div>
-                                </div>
+                            <div class="col-md-6">
+                                <h4 class="mb-0 text-center">You call, we deliver</h4>
                             </div>
                         </div>
-                        <div class="card position-relative">
-                            <!-- Image Wrapper -->
-                            <div class="position-relative">
-                                <!-- Product Image -->
-                                <a href="{% url 'main-product-detail' %}" >
-                                  <img src="{% static 'main/img/product.jpg' %}" class="card-img-top" alt="product image">
-                                </a>
-                                <!-- Sale Badge -->
-                                <span class="badge border border-primary text-primary position-absolute top-0 start-0 m-1 p-1 rounded-circle d-flex align-items-center justify-content-center bg-save-badge" style="width: 60px; height: 60px; border-width: 2px;">Save <br> Rs. 100</span>
-                            </div>
-                            <div class="card-body bg-primary">
-                                <div class="row g-0 bg-white">
-                                    <div class="col p-2">
-                                        {% comment %} <p class="card-text save-btn text-sm mb-1">Save Rs. 100</p> {% endcomment %}
-                                        <h3 class="card-text text-very-lg mb-0">Rs. 100</h3>
-                                        <p class="text-gray-700 mb-0">Rs. 200/10pcs</p>
-                                    </div>
-                                    <div class="col d-flex align-items-center">
-                                        <a href="{% url 'main-product-detail' %}" class="card-title text-center h5 text-primary">Lorem ipsum dolor sit amet</a>   
+                    </div>
+                    <div class="col-md-4 bg-secondary p-4">
+                        <h1 class="text-center text-underline"><u>Special Offers</u></h1>
+                        <div class="card-group">
+                            <div class="card position-relative">
+                                <!-- Image Wrapper -->
+                                <div class="position-relative">
+                                    <!-- Product Image -->
+                                    <a href="{% url 'main-product-detail' %}" >
+                                        <img src="{% static 'main/img/product.jpg' %}" class="card-img-top" alt="product image">
+                                    </a>
+                                    <!-- Sale Badge -->
+                                    <span class="badge border border-primary text-primary position-absolute top-0 start-0 m-1 p-1 rounded-circle d-flex align-items-center justify-content-center bg-save-badge" style="width: 60px; height: 60px; border-width: 2px;">Save <br> Rs. 100</span>
+                                </div>
+                                <div class="card-body bg-primary">
+                                    <div class="row g-0 bg-white">
+                                        <div class="col p-2">
+                                            {% comment %} <p class="card-text save-btn text-sm mb-1">Save Rs. 100</p> {% endcomment %}
+                                            <h4 class="card-text text-very-lg mb-0">Rs. 100</h4>
+                                            <p class="text-gray-700 mb-0">Rs. 200/10pcs</p>
+                                        </div>
+                                        <div class="col d-flex align-items-center">
+                                            <a href="{% url 'main-product-detail' %}" class="card-title text-center h5 text-primary">Lorem ipsum dolor sit amet</a>   
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
-                    </div>
-                </div>
-                <div class="bg-secondary p-2">
-                    <div class="d-flex align-items-center  justify-content-between">
-                        <h2>1/2 Price</h2> 
-                        <h3>Bonds</h3>
-                        images
-                    </div>
-                    
-                </div>
-                <div class="text-white row py-2">
-                    <div class="col-md-6">
-                        <h4 class="mb-0 text-center">lorem ipsum dolor sit</h4>
-                    </div>
-                    <div class="col-md-6">
-                        <h4 class="mb-0 text-center">You call, we deliver</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 bg-secondary p-4">
-                <h1 class="text-center text-underline"><u>Special Offers</u></h1>
-                <div class="card-group">
-                    <div class="card position-relative">
-                        <!-- Image Wrapper -->
-                        <div class="position-relative">
-                            <!-- Product Image -->
-                            <a href="{% url 'main-product-detail' %}" >
-                                <img src="{% static 'main/img/product.jpg' %}" class="card-img-top" alt="product image">
-                            </a>
-                            <!-- Sale Badge -->
-                            <span class="badge border border-primary text-primary position-absolute top-0 start-0 m-1 p-1 rounded-circle d-flex align-items-center justify-content-center bg-save-badge" style="width: 60px; height: 60px; border-width: 2px;">Save <br> Rs. 100</span>
-                        </div>
-                        <div class="card-body bg-primary">
-                            <div class="row g-0 bg-white">
-                                <div class="col p-2">
-                                    {% comment %} <p class="card-text save-btn text-sm mb-1">Save Rs. 100</p> {% endcomment %}
-                                    <h4 class="card-text text-very-lg mb-0">Rs. 100</h4>
-                                    <p class="text-gray-700 mb-0">Rs. 200/10pcs</p>
+                        <div class="card-group">
+                            <div class="card position-relative">
+                                <!-- Image Wrapper -->
+                                <div class="position-relative">
+                                    <!-- Product Image -->
+                                    <a href="{% url 'main-product-detail' %}" >
+                                        <img src="{% static 'main/img/product.jpg' %}" class="card-img-top" alt="product image">
+                                    </a>
+                                    <!-- Sale Badge -->
+                                    <span class="badge border border-primary text-primary position-absolute top-0 start-0 m-1 p-1 rounded-circle d-flex align-items-center justify-content-center bg-save-badge" style="width: 60px; height: 60px; border-width: 2px;">Save <br> Rs. 100</span>
                                 </div>
-                                <div class="col d-flex align-items-center">
-                                    <a href="{% url 'main-product-detail' %}" class="card-title text-center h5 text-primary">Lorem ipsum dolor sit amet</a>   
+                                <div class="card-body bg-primary">
+                                    <div class="row g-0 bg-white">
+                                        <div class="col p-2">
+                                            {% comment %} <p class="card-text save-btn text-sm mb-1">Save Rs. 100</p> {% endcomment %}
+                                            <h4 class="card-text text-very-lg mb-0">Rs. 100</h4>
+                                            <p class="text-gray-700 mb-0">Rs. 200/10pcs</p>
+                                        </div>
+                                        <div class="col d-flex align-items-center">
+                                            <a href="{% url 'main-product-detail' %}" class="card-title text-center h5 text-primary">Lorem ipsum dolor sit amet</a>   
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="card-group">
-                    <div class="card position-relative">
-                        <!-- Image Wrapper -->
-                        <div class="position-relative">
-                            <!-- Product Image -->
-                            <a href="{% url 'main-product-detail' %}" >
-                                <img src="{% static 'main/img/product.jpg' %}" class="card-img-top" alt="product image">
-                            </a>
-                            <!-- Sale Badge -->
-                            <span class="badge border border-primary text-primary position-absolute top-0 start-0 m-1 p-1 rounded-circle d-flex align-items-center justify-content-center bg-save-badge" style="width: 60px; height: 60px; border-width: 2px;">Save <br> Rs. 100</span>
-                        </div>
-                        <div class="card-body bg-primary">
-                            <div class="row g-0 bg-white">
-                                <div class="col p-2">
-                                    {% comment %} <p class="card-text save-btn text-sm mb-1">Save Rs. 100</p> {% endcomment %}
-                                    <h4 class="card-text text-very-lg mb-0">Rs. 100</h4>
-                                    <p class="text-gray-700 mb-0">Rs. 200/10pcs</p>
-                                </div>
-                                <div class="col d-flex align-items-center">
-                                    <a href="{% url 'main-product-detail' %}" class="card-title text-center h5 text-primary">Lorem ipsum dolor sit amet</a>   
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-md-2 bg-primary p-4 text-white text-center ">
+                        <h1 class="text-underline"><u>Contents</u></h1>
+                        <p>Click to browse</p>
+                        <ul class="list-unstyled">
+                            <li class="py-2 border border-hover-secondary cursor-pointer"><a href="#" class="text-white">1/2 Price</a></li>
+                            <li class="py-2 border border-white cursor-pointer"><a href="#" class="text-white">1/2 Price</a></li>
+                            <li class="py-2 border border-white cursor-pointer"><a href="#" class="text-white">Fruits & Veg</a></li>
+                            <li class="py-2 border border-white cursor-pointer"><a href="#" class="text-white">Item</a></li>
+                            <li class="py-2 border border-white cursor-pointer"><a href="#" class="text-white">Item</a></li>
+                            <li class="py-2 border border-white cursor-pointer"><a href="#" class="text-white">Item</a></li>
+                            <li class="py-2 border border-white cursor-pointer"><a href="#" class="text-white">Item</a></li>
+                            <li class="py-2 border border-white cursor-pointer"><a href="#" class="text-white">Item</a></li>
+                            <li class="py-2 border border-white cursor-pointer"><a href="#" class="text-white">Item</a></li>
+                        </ul>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-2 bg-primary p-4 text-white text-center ">
-                <h1 class="text-underline"><u>Contents</u></h1>
-                <p>Click to browse</p>
-                <ul class="list-unstyled">
-                    <li class="py-2 border border-hover-secondary cursor-pointer"><a href="#" class="text-white">1/2 Price</a></li>
-                    <li class="py-2 border border-white cursor-pointer"><a href="#" class="text-white">1/2 Price</a></li>
-                    <li class="py-2 border border-white cursor-pointer"><a href="#" class="text-white">Fruits & Veg</a></li>
-                    <li class="py-2 border border-white cursor-pointer"><a href="#" class="text-white">Item</a></li>
-                    <li class="py-2 border border-white cursor-pointer"><a href="#" class="text-white">Item</a></li>
-                    <li class="py-2 border border-white cursor-pointer"><a href="#" class="text-white">Item</a></li>
-                    <li class="py-2 border border-white cursor-pointer"><a href="#" class="text-white">Item</a></li>
-                    <li class="py-2 border border-white cursor-pointer"><a href="#" class="text-white">Item</a></li>
-                    <li class="py-2 border border-white cursor-pointer"><a href="#" class="text-white">Item</a></li>
-                </ul>
-            </div>
+            </aside>
+          </div>
+
+          <div class="carousel-item">
+            <aside class="card team1">
+                <img src="https://user-images.githubusercontent.com/78242022/283794539-fc01d463-7bad-4887-a02a-2b9c3eed891f.jpg" alt="">
+                <h2 class="name">Alan Shin</h2>
+                <p class="role">Co-Founder</p>
+                <p class="work-at">Duper Duper</p>
+            </aside>
+          </div>
+
+          <div class="carousel-item">
+            <aside class="card team1">
+              <img src="https://user-images.githubusercontent.com/78242022/283794643-4cea087e-3214-4331-84f8-fde21a8f22db.jpg" alt="">
+              <h2 class="name">Laurel Peng</h2>
+              <p class="role">Head of Corporate</p>
+              <p class="work-at">Development, MCX</p>
+            </aside>
+          </div>
+
         </div>
-      </div>
-      <div class="carousel-item">
-        <img src="..." class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="..." class="d-block w-100" alt="...">
-      </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <i class="fa-solid fa-arrow-left text-primary"></i>
+          <span class="carousel-control-prev-icon visually-hidden" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <i class="fa-solid fa-arrow-right text-primary"></i>
+          <span class="carousel-control-next-icon visually-hidden" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
+</section>
 {% endblock content %}
