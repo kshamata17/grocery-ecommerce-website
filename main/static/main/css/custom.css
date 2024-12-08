@@ -1,0 +1,162 @@
+/* bg-colors */
+.bg-mint {
+    --bs-bg-opacity: 1;
+    background-color: #bee0c7;
+}
+.bg-orange {
+    --bs-bg-opacity: 1;
+    background-color: #f16838;
+}
+.bg-lemon {
+    --bs-bg-opacity: 1;
+    background-color: #e1dc53;
+}
+.bg-basil {
+    --bs-bg-opacity: 1;
+    background-color: #266533;
+}
+.bg-cream {
+    --bs-bg-opacity: 1;
+    background-color: #f6fdfc;
+}
+
+/* text-colors */
+.text-mint {
+    --bs-text-opacity: 1;
+    color: #bee0c7;
+}
+.text-cream {
+    --bs-text-opacity: 1;
+    color: #f6fdfc;
+}
+
+/* btn */
+.btn-orange {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #f16838;
+    --bs-btn-border-color: #eb825c;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #ea815b;
+    --bs-btn-hover-border-color: #ea815b;
+    --bs-btn-focus-shadow-rgb: 164, 164, 164;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #ea815b;
+    --bs-btn-active-border-color: #6f6f6f;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #f16838;
+    --bs-btn-disabled-border-color: #f16838;
+}
+
+.save-btn {
+    max-width: fit-content;
+    padding: 0.25rem 0.5rem;
+    background: #ffff00;
+    color: #000000;
+}
+.bg-save-badge {
+    background: #ffff00;
+}
+.text-very-lg {
+    font-size: 2.1rem;
+}
+.border-hover-secondary:hover {
+    border: 1px solid #6f6f6f; 
+    /* border: 1px solid #f6f4dc;  */
+}
+
+/* Book */
+.book {
+    position: relative;
+    width: 360px;
+    height: 750px;
+    transition: transform 0.5s;
+}
+
+.paper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    perspective: 1500px;
+}
+
+.front,
+.back {
+    background-color: white;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform-origin: left;
+    transition: transform 0.5s;
+}
+
+.front {
+    z-index: 1;
+    backface-visibility: hidden;
+    border-left: 3px solid powderblue;
+}
+
+.back {
+    z-index: 0;
+}
+
+.front-content,
+.back-content {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.back-content {
+    transform: rotateY(180deg)
+}
+
+/* Paper flip effect */
+.flipped .front,
+.flipped .back {
+    transform: rotateY(-180deg);
+}
+
+/* Controller Buttons */
+button {
+    border: none;
+    /* background-color: transparent; */
+    cursor: pointer;
+    margin: 10px;
+    transition: transform 0.5s;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:hover i {
+    color: #636363;
+}
+
+i {
+    font-size: 50px;
+    color: gray;
+}
+
+/* Paper stack order */
+#p1 {
+    z-index: 3;
+}
+
+#p2 {
+    z-index: 2;
+}
+
+#p3 {
+    z-index: 1;
+}
+.border-catalogue {
+    border: 5px solid #ffffff;
+}

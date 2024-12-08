@@ -1,0 +1,54 @@
+{% load static %}
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3JFF3WPVYJ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-3JFF3WPVYJ');
+    </script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-f" content="IE=edge">
+
+    <meta name="description" content="Ecommerce-Grocery-Website">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,700">   
+    <link rel="stylesheet" href="{% static 'main/css/custom.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/style.default.css' %}">
+    <!-- fontawesome icons -->    
+    <link rel="stylesheet" href="{% static 'main/fontawesome/css/all.css' %}">
+    <!-- Swiper slider-->
+    <link rel="stylesheet" href="{% static 'main/swiper/swiper-bundle.min.css' %}">
+    <title>{% block title %} {% endblock %} Groceteria </title>
+
+</head>
+
+<body class="bg-cream">
+    {% include 'main/includes/navbar.html' %}
+        <!-- Main body section starts -->
+        {% block content %}
+            
+        {% endblock %}
+        <!-- Main body section ends -->
+    {% include 'main/includes/footer.html' %}
+
+    <script src="{% static 'main/swiper/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'main/js/theme.js' %}"></script>
+    <script src="{% static 'main/fontawesome/js/all.js' %}"></script>
+    <script src="{% static 'main/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    {% comment %} htmx {% endcomment %}
+    {% comment %} <script src="{% static 'main/htmx.min.js' %}"></script>
+    <script>
+        document.body.addEventListener('htmx:configRequest', (event) => {
+            event.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
+        })
+    </script>
+     {% endcomment %}
+     <script src="{% static 'main/js/script.js' %}"></script>
+
+</body>
+</html>

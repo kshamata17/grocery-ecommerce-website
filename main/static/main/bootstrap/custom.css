@@ -1,0 +1,26 @@
+.bg-primary-live {
+    background-color: #1d2570;
+}
+
+footer .footer-links p a{
+    position: relative;
+}
+
+footer .footer-links::after p a{
+    content: "";
+    display: inline-block;
+    opacity: .3;
+    position: absolute;
+    top: 0;
+    width: 0.1rem;
+    height: 2.4rem;
+    vertical-align: middle;
+    background-color: #ffffff;
+}
+
+a.livescore-link {
+    color: #0c0240;
+}
+a.livescore-link:hover {
+    color: #0c0240;
+}
