@@ -1,0 +1,160 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+<section class="">
+    <div class="py-4 bg-primary d-flex justify-content-center align-items-center">
+        <button id="prev-btn" class="btn btn-primary cursor-pointer">
+            <i class="fa-solid fa-caret-left fa-3x"></i>
+        </button>
+        
+        <div id="book" class="book positive-relative">
+            <div id="p1" class="paper text-white">
+                <div class="front p-4 bg-primary border-catalogue">
+                    <h1 class="text-uppercase text-center">groceteria catalogue</h1>
+                    <h3 class="text-uppercase text-center">You call, we deliver</h3>
+
+                    <div id="f1" class="front-content bg-white">
+                        <div class="container bg-primary text-white text-center">
+                            <h1 class="text-underline"><u>Contents</u></h1>
+                            <p>Click to browse</p>
+                            <ul class="list-unstyled">
+                                <li class="py-2 border border-hover-secondary cursor-pointer"><a href="#" class="text-white">1/2 Price</a></li>
+                                <li class="py-2 border border-white cursor-pointer"><a href="#" class="text-white">1/2 Price</a></li>
+                                <li class="py-2 border border-white cursor-pointer"><a href="#" class="text-white">Fruits & Veg</a></li>
+                                <li class="py-2 border border-white cursor-pointer"><a href="#" class="text-white">Item</a></li>
+                                <li class="py-2 border border-white cursor-pointer"><a href="#" class="text-white">Item</a></li>
+                                <li class="py-2 border border-white cursor-pointer"><a href="#" class="text-white">Item</a></li>
+                                <li class="py-2 border border-white cursor-pointer"><a href="#" class="text-white">Item</a></li>
+                                <li class="py-2 border border-white cursor-pointer"><a href="#" class="text-white">Item</a></li>
+                                <li class="py-2 border border-white cursor-pointer"><a href="#" class="text-white">Item</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="back bg-primary border-catalogue">
+                    <div id="b1" class="back-content">
+                        <h1 class="text-white">Back 1</h1>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="p2" class="paper">
+                <div class="front p-4 bg-primary border-catalogue">
+                    <div id="f2" class="front-content">
+                        <h1 class="text-white">Front 2</h1>
+                    </div>
+                </div>
+                <div class="back bg-primary border-catalogue">
+                    <div id="b2" class="back-content">
+                        <h1 class="text-white">Back 2</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div id="p3" class="paper">
+                <div class="front p-4 bg-primary border-catalogue">
+                    <div id="f3" class="front-content">
+                        <h1 class="text-white">Front 3</h1>
+                    </div>
+                </div>
+                <div class="back bg-primary border-catalogue">
+                    <div id="b3" class="back-content">
+                        <h1 class="text-white">Back 3</h1>
+                    </div>
+                </div>
+            </div>   
+        </div>
+
+        <button id="next-btn" class="btn btn-primary cursor-pointer">
+            <i class="fa-solid fa-caret-right fa-3x"></i>
+        </button>
+    </div>
+</section>
+
+<script>
+    // References to DOM Elements
+const prevBtn = document.querySelector("#prev-btn");
+const nextBtn = document.querySelector("#next-btn");
+const book = document.querySelector("#book");
+
+const paper1 = document.querySelector("#p1");
+const paper2 = document.querySelector("#p2");
+const paper3 = document.querySelector("#p3");
+
+// Event Listener
+prevBtn.addEventListener("click", goPrevPage);
+nextBtn.addEventListener("click", goNextPage);
+
+// Business Logic
+let currentLocation = 1;
+let numOfPapers = 3;
+let maxLocation = numOfPapers + 1;
+
+function openBook() {
+    book.style.transform = "translateX(50%)";
+    prevBtn.style.transform = "translateX(-180px)";
+    nextBtn.style.transform = "translateX(180px)";
+}
+
+function closeBook(isAtBeginning) {
+    if(isAtBeginning) {
+        book.style.transform = "translateX(0%)";
+    } else {
+        book.style.transform = "translateX(100%)";
+    }
+    
+    prevBtn.style.transform = "translateX(0px)";
+    nextBtn.style.transform = "translateX(0px)";
+}
+
+function goNextPage() {
+    if(currentLocation < maxLocation) {
+        switch(currentLocation) {
+            case 1:
+                openBook();
+                paper1.classList.add("flipped");
+                paper1.style.zIndex = 1;
+                break;
+            case 2:
+                paper2.classList.add("flipped");
+                paper2.style.zIndex = 2;
+                break;
+            case 3:
+                paper3.classList.add("flipped");
+                paper3.style.zIndex = 3;
+                closeBook(false);
+                break;
+            default:
+                throw new Error("unkown state");
+        }
+        currentLocation++;
+    }
+}
+
+function goPrevPage() {
+    if(currentLocation > 1) {
+        switch(currentLocation) {
+            case 2:
+                closeBook(true);
+                paper1.classList.remove("flipped");
+                paper1.style.zIndex = 3;
+                break;
+            case 3:
+                paper2.classList.remove("flipped");
+                paper2.style.zIndex = 2;
+                break;
+            case 4:
+                openBook();
+                paper3.classList.remove("flipped");
+                paper3.style.zIndex = 1;
+                break;
+            default:
+                throw new Error("unkown state");
+        }
+
+        currentLocation--;
+    }
+}
+    
+</script>
+{% endblock content %}
